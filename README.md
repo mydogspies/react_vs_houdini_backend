@@ -14,5 +14,6 @@ Here are some thoughts regarding the backend part;
 * The only reason I used Houdini with Python 2.7 and not 3.x is that that particular system I tested this on uses Renderman which at the moment of writing this is still only compatible with 2.7. It should all work exactly the same under 3.x.
 * Hython does not come with certain mainstream libraries so I had to install pip directly into the distro, followed by flask-restful and flask-cors. For some reason Flask installed globally works but not the two other libs. Could just be an Intellij issue or a Win ditto.
 * I made sure to add the following lines PYTHONPATH; *HOUDINI_PATH\python27\lib\site-packages*; *HOUDINI_PATH\python27\python2.7libs* where HOUDINI_PATH is the path to the particular Houdini install.
+* Finally and importantly!; For Hrpyc to work the server MUST be started from within Houdini prior to connection being made. See the projectfiles part of this project for explanation!
 
 A great video on how to install PIP into Houdini itself can be found here; https://www.youtube.com/watch?v=cIEN50WuPoc
