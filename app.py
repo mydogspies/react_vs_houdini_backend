@@ -3,6 +3,7 @@ import hrpyc
 from flask import Flask, send_from_directory, request
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
+import config
 
 app = Flask(__name__, static_url_path='', static_folder='../frontend/build')
 CORS(app)
@@ -16,10 +17,10 @@ def serve(path):
 
 @app.route('/houdini/start', methods=['POST'])
 def houdini():
-    houdini_app = "C:/Program Files/Side Effects Software/Houdini 18.5.596/bin/houdini.exe"
-    houdini_default_file = "M:/30_CODING/01_MIXENV/py_vs_houdini/houdini/exampleProjects/projectOne/remote_sphere.hip"
-    houdini_default_script = "M:/30_CODING/01_MIXENV/py_vs_houdini/houdini/exampleProjects/projectOne/scripts/run_some_python.py"
-    os.environ['JOB'] = "M:/30_CODING/01_MIXENV/py_vs_houdini/houdini/exampleProjects/projectOne"
+    houdini_app = config.houdini_install_path + "bin/houdini.exe"
+    houdini_default_file = config.local_project_path + "py_vs_houdini/houdini/exampleProjects/projectOne/remote_sphere.hipnc"
+    houdini_default_script = config.local_project_path + "py_vs_houdini/houdini/exampleProjects/projectOne/scripts/run_some_python.py"
+    os.environ['JOB'] = config.local_project_path + "houdini/exampleProjects/projectOne"
     houdini_cmd = '{} {} {}'.format(houdini_app, houdini_default_file, houdini_default_script)
     subprocess.Popen(houdini_cmd)
     return 'ok'
