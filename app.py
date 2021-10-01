@@ -18,9 +18,9 @@ def serve(path):
 @app.route('/houdini/start', methods=['POST'])
 def houdini():
     houdini_app = config.houdini_install_path + "bin/houdini.exe"
-    houdini_default_file = config.local_project_path + "py_vs_houdini/houdini/exampleProjects/projectOne/remote_sphere.hipnc"
-    houdini_default_script = config.local_project_path + "py_vs_houdini/houdini/exampleProjects/projectOne/scripts/run_some_python.py"
-    os.environ['JOB'] = config.local_project_path + "houdini/exampleProjects/projectOne"
+    houdini_default_file = config.local_project_file
+    houdini_default_script = config.local_startup_script
+    os.environ['JOB'] = config.local_project_root
     houdini_cmd = '{} {} {}'.format(houdini_app, houdini_default_file, houdini_default_script)
     subprocess.Popen(houdini_cmd)
     return 'ok'
