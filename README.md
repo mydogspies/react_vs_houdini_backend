@@ -25,7 +25,7 @@ So no guarantees and only tested on Windows and within Intellij;
 These are the three repos you need;
 * https://github.com/mydogspies/react_vs_houdini_backend
 * https://github.com/mydogspies/react_vs_houdini_frontend
-* https://github.com/mydogspies/react_vs_houdin_projectfiles
+* https://github.com/mydogspies/react_vs_houdini_projectfiles
 
 * Clone all *three* REACT vs HOUDINI repos to somewhere on your disc.
 * **In the Flask BACKEND**; change the paths in the config.py to match with wherever you saved the project files to and your Houdini install dir (path://to/Houdini 18.5.xxx/)
