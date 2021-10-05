@@ -17,7 +17,7 @@ def serve(path):
 
 @app.route('/houdini/start', methods=['POST'])
 def houdini():
-    houdini_app = config.houdini_install_path + "bin/houdini.exe"
+    houdini_app = config.houdini_install_path + "bin/happrentice.exe"
     houdini_default_file = config.local_project_file
     houdini_default_script = config.local_startup_script
     os.environ['JOB'] = config.local_project_root
@@ -31,6 +31,7 @@ def color_sphere(hue):
     connection, hou = hrpyc.import_remote_module()
     color = hou.node("/obj/geo1/color1")
     version = hou.applicationVersion()
+    print('version')
     if hue == "red":
         color.parm("colorr").set(1)
         color.parm("colorg").set(0)
